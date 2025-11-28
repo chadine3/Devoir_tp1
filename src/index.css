@@ -1,0 +1,423 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Light background */
+    --foreground: 222.2 84% 4.9%; /* Light foreground (dark text) */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%; /* Light secondary background */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%; /* Light border */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Custom N-Queens colors (Light) */
+    --nq-bg-gradient-from: theme('colors.gray.100');
+    --nq-bg-gradient-via: theme('colors.blue.100');
+    --nq-bg-gradient-to: theme('colors.purple.100');
+    --nq-text: theme('colors.gray.800');
+    --nq-panel-bg: theme('colors.white');
+    --nq-panel-border: theme('colors.gray.300');
+    --nq-panel-text: theme('colors.gray.700');
+    --nq-title-from: theme('colors.blue.600');
+    --nq-title-to: theme('colors.purple.600');
+    --nq-board-border: theme('colors.blue.500');
+    --nq-board-bg: theme('colors.blue.50');
+    --nq-square-light-from: theme('colors.indigo.100');
+    --nq-square-light-to: theme('colors.purple.200');
+    --nq-square-dark-from: theme('colors.indigo.400');
+    --nq-square-dark-to: theme('colors.purple.500');
+    --nq-queen-text: theme('colors.yellow.500');
+    --nq-status-text: theme('colors.gray.600');
+    --nq-status-bg: theme('colors.gray.100');
+    --nq-conflict-text: theme('colors.red.600');
+    --nq-info-bg: theme('colors.gray.50');
+    --nq-info-border: theme('colors.gray.200');
+    --nq-info-title: theme('colors.blue.700');
+    --nq-info-text: theme('colors.gray.600');
+    --nq-success-banner-from: theme('colors.green.400');
+    --nq-success-banner-to: theme('colors.emerald.500');
+    --nq-success-banner-text: theme('colors.white');
+    --nq-attacked-overlay: #ef444433; /* red-500 with 20% opacity */
+    --nq-chart-bg: theme('colors.gray.200');
+    --nq-chart-line: theme('colors.red.500');
+    --nq-log-bg: theme('colors.gray.100');
+    --nq-log-border: theme('colors.gray.300');
+    --nq-log-text: theme('colors.gray.700');
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%; /* Dark background */
+    --foreground: 210 40% 98%; /* Dark foreground (light text) */
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%; /* Dark secondary background */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%; /* Dark border */
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Custom N-Queens colors (Dark) */
+    --nq-bg-gradient-from: theme('colors.gray.900');
+    --nq-bg-gradient-via: theme('colors.blue.900');
+    --nq-bg-gradient-to: theme('colors.gray.900');
+    --nq-text: theme('colors.white');
+    --nq-panel-bg: #1f2937cc; /* bg-gray-800/80 */
+    --nq-panel-border: #4b556380; /* border-gray-700/50 */
+    --nq-panel-text: theme('colors.gray.300');
+    --nq-title-from: theme('colors.blue.400');
+    --nq-title-to: theme('colors.purple.500');
+    --nq-board-border: theme('colors.blue.700');
+    --nq-board-bg: theme('colors.blue.900');
+    --nq-square-light-from: theme('colors.indigo.100');
+    --nq-square-light-to: theme('colors.purple.200');
+    --nq-square-dark-from: theme('colors.indigo.600');
+    --nq-square-dark-to: theme('colors.purple.800');
+    --nq-queen-text: theme('colors.yellow.300');
+    --nq-status-text: theme('colors.gray.300');
+    --nq-status-bg: #37415199; /* bg-gray-700/60 */
+    --nq-conflict-text: theme('colors.red.400');
+    --nq-info-bg: #1f29374d; /* bg-gray-800/30 */
+    --nq-info-border: #4b556366; /* border-gray-700/40 */
+    --nq-info-title: theme('colors.blue.300');
+    --nq-info-text: theme('colors.gray.400');
+    --nq-success-banner-from: theme('colors.green.500');
+    --nq-success-banner-to: theme('colors.emerald.600');
+    --nq-success-banner-text: theme('colors.white');
+    --nq-attacked-overlay: #f871714d; /* red-400 with 30% opacity */
+    --nq-chart-bg: theme('colors.gray.700');
+    --nq-chart-line: theme('colors.red.400');
+    --nq-log-bg: theme('colors.gray.800');
+    --nq-log-border: theme('colors.gray.600');
+    --nq-log-text: theme('colors.gray.300');
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-colors duration-300;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif; /* Using Inter font */
+    @apply transition-colors duration-300;
+  }
+  @supports (font-variation-settings: normal) {
+    body { font-family: 'Inter var', sans-serif; }
+  }
+}
+
+/* Updated component styles using CSS variables */
+@layer components {
+  .app-container {
+    @apply flex flex-col lg:flex-row p-4 md:p-8 gap-8 min-h-screen bg-gradient-to-br from-[var(--nq-bg-gradient-from)] via-[var(--nq-bg-gradient-via)] to-[var(--nq-bg-gradient-to)] text-[var(--nq-text)];
+  }
+
+  .control-panel {
+    @apply lg:w-1/3 xl:w-1/4 flex flex-col space-y-6 bg-[var(--nq-panel-bg)] p-6 rounded-lg shadow-xl backdrop-blur-sm border border-[var(--nq-panel-border)] text-[var(--nq-panel-text)];
+  }
+
+  .visualizer-area {
+     @apply lg:w-2/3 xl:w-3/4 flex flex-col items-center justify-start; /* Changed justify-center to justify-start */
+  }
+
+  .main-title {
+      @apply text-3xl md:text-4xl font-extrabold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--nq-title-from)] to-[var(--nq-title-to)];
+  }
+
+  .chessboard-container {
+      @apply relative aspect-square w-full max-w-[600px] grid border-4 border-[var(--nq-board-border)] rounded-lg overflow-hidden shadow-2xl bg-[var(--nq-board-bg)];
+  }
+   .chessboard-square {
+      @apply relative w-full h-full flex items-center justify-center border border-black/10 dark:border-white/10;
+   }
+   .chessboard-square-light {
+     @apply bg-gradient-to-br from-[var(--nq-square-light-from)] to-[var(--nq-square-light-to)];
+   }
+   .chessboard-square-dark {
+     @apply bg-gradient-to-br from-[var(--nq-square-dark-from)] to-[var(--nq-square-dark-to)];
+   }
+   .attacked-overlay {
+      @apply absolute inset-0 bg-[var(--nq-attacked-overlay)] pointer-events-none;
+   }
+   .queen-icon {
+      @apply text-3xl md:text-4xl lg:text-5xl text-[var(--nq-queen-text)] filter drop-shadow-lg z-10; /* Added z-10 */
+   }
+
+
+  .status-box {
+      @apply text-sm text-[var(--nq-status-text)] bg-[var(--nq-status-bg)] p-3 rounded-md min-h-[60px] flex items-center justify-center text-center;
+  }
+
+   .conflict-display {
+      @apply flex items-center justify-center space-x-2 text-xl font-bold text-[var(--nq-conflict-text)];
+   }
+   .conflict-icon {
+       @apply h-6 w-6 transition-all duration-300;
+   }
+   .conflict-icon-active {
+        @apply animate-pulse text-yellow-400; /* Pulse stays yellow */
+   }
+   .conflict-icon-solved {
+       @apply text-green-400; /* Green when solved */
+   }
+
+
+   .info-box {
+        @apply mt-8 w-full max-w-xl text-center p-4 bg-[var(--nq-info-bg)] rounded-lg border border-[var(--nq-info-border)];
+   }
+   .info-box h4 {
+        @apply flex items-center justify-center text-lg mb-3 font-semibold text-[var(--nq-info-title)];
+   }
+    .info-box p {
+        @apply mb-1 text-[var(--nq-info-text)] text-sm;
+   }
+   .info-box .icon {
+        @apply inline mr-1 h-4 w-4;
+   }
+   .info-box .icon-target { @apply text-green-400; }
+   .info-box .icon-penalty { @apply text-red-400; }
+   .info-box .icon-reward { @apply text-yellow-400; }
+   .info-box .highlight { @apply font-semibold text-[var(--nq-text)]}
+
+
+   .solution-found-banner {
+        @apply mt-6 p-4 bg-gradient-to-r from-[var(--nq-success-banner-from)] to-[var(--nq-success-banner-to)] text-[var(--nq-success-banner-text)] rounded-lg shadow-lg text-center font-bold text-xl;
+   }
+
+  /* Styling for Slider component to use theme variables */
+  .themed-slider {
+      @apply [&>span:first-child]:h-2 [&>span:first-child>span]:bg-gradient-to-r [&>span:first-child>span]:from-blue-500 [&>span:first-child>span]:to-purple-500 dark:[&>span:first-child>span]:from-blue-400 dark:[&>span:first-child>span]:to-purple-400;
+      @apply [&>span:last-child]:bg-background [&>span:last-child]:border-primary;
+  }
+
+  /* Styling for labels */
+   .themed-label {
+       @apply text-lg font-medium text-blue-700 dark:text-blue-200;
+   }
+   .themed-label-sm {
+       @apply text-xs text-gray-500 dark:text-gray-400;
+   }
+   .themed-status-title {
+        @apply text-lg font-semibold text-blue-800 dark:text-blue-300;
+   }
+
+   /* Chart Styles */
+   .chart-container {
+       @apply w-full h-32 bg-[var(--nq-chart-bg)] rounded-md mt-4 p-2 flex items-end space-x-px overflow-hidden;
+   }
+   .chart-bar {
+       @apply w-full bg-[var(--nq-chart-line)] rounded-t-sm transition-all duration-300 ease-out;
+   }
+   .chart-title {
+       @apply text-sm font-medium text-center mt-1 text-[var(--nq-panel-text)];
+   }
+
+   /* Log Styles */
+   .log-container {
+       @apply w-full h-40 bg-[var(--nq-log-bg)] border border-[var(--nq-log-border)] rounded-md mt-4 p-2 overflow-y-auto text-xs text-[var(--nq-log-text)] flex flex-col-reverse; /* Reverse to show latest first */
+   }
+   .log-entry {
+       @apply mb-1 border-b border-[var(--nq-log-border)] pb-1;
+   }
+   .log-title {
+       @apply text-sm font-medium text-center mt-4 text-[var(--nq-panel-text)];
+   }
+}
+
+/* Add Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* Add variable Inter font */
+/* Replace the @font-face blocks with: */
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+  
+
+/* Add this to your index.css file, either at the bottom or in the components layer */
+@layer components {
+  .chessboard-container {
+    @apply relative aspect-square w-full max-w-[600px] grid border-4 border-[var(--nq-board-border)] rounded-lg overflow-hidden shadow-2xl bg-[var(--nq-board-bg)];
+  }
+
+  .chessboard-square {
+    @apply relative w-full h-full flex items-center justify-center border border-black/10 dark:border-white/10;
+  }
+
+  .chessboard-square-light {
+    @apply bg-gradient-to-br from-[var(--nq-square-light-from)] to-[var(--nq-square-light-to)];
+  }
+
+  .chessboard-square-dark {
+    @apply bg-gradient-to-br from-[var(--nq-square-dark-from)] to-[var(--nq-square-dark-to)];
+  }
+
+  .attacked-overlay {
+    @apply absolute inset-0 bg-[var(--nq-attacked-overlay)] pointer-events-none;
+  }
+
+  .queen-icon {
+    @apply text-3xl md:text-4xl lg:text-5xl text-[var(--nq-queen-text)] filter drop-shadow-lg z-10;
+    font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif; /* Better emoji rendering */
+  }
+
+
+
+  /* Connection warning */
+.connection-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ef4444;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top: 4px solid #fff;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.info-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: white;
+  color: #1a202c;
+}
+
+.dark .info-box {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+.info-box h4 {
+  margin-bottom: 0.75rem;
+}
+
+.info-box p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+:root {
+  --square-light: #f0f0f0;
+  --square-dark: #d0d0d0;
+}
+
+.dark {
+  --square-light: #4b5563;
+  --square-dark: #374151;
+}
+
+/* Smooth transitions for the panel */
+.fixed-bottom-panel {
+  transition: all 0.3s ease;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* For the exploration indicator */
+.exploration-bar {
+  transition: width 0.3s ease;
+}
+
+/* For queen animations */
+.queen-exploring {
+  animation: pulse-blue 1.5s infinite;
+}
+.queen-exploiting {
+  animation: pulse-green 1.5s infinite;
+}
+
+@keyframes pulse-blue {
+  0% { color: #3b82f6; transform: scale(1); }
+  50% { color: #93c5fd; transform: scale(1.1); }
+  100% { color: #3b82f6; transform: scale(1); }
+}
+}
